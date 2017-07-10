@@ -143,7 +143,8 @@ module Tire
 
               else
                 # Strings formatted as <http://en.wikipedia.org/wiki/ISO8601> are automatically converted to Time
-                value = Time.parse(value).utc if value.is_a?(String) && value =~ /^\d{4}[\/\-]\d{2}[\/\-]\d{2}T\d{2}\:\d{2}\:\d{2}/
+                is_time = value.is_a?(String) && (value.length < 30) && value =~ /\A\d{4}[\/\-]\d{2}[\/\-]\d{2}T\d{2}\:\d{2}\:\d{2}/
+                value = Time.parse(value).utc if is_time
                 value
             end
           end
