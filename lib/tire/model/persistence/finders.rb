@@ -22,12 +22,12 @@ module Tire
               end.results
             else
               case args = args.pop
-                when Fixnum, String
+                when Integer, String
                   index.retrieve document_type, args, :wrapper => self
                 when :all, :first
                   send(args)
                 else
-                  raise ArgumentError, "Please pass either ID as Fixnum or String, or :all, :first as an argument"
+                  raise ArgumentError, "Please pass either ID as Integer or String, or :all, :first as an argument"
               end
             end
           end
