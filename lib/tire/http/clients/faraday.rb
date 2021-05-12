@@ -59,7 +59,7 @@ module Tire
           end
 
           def __host_unreachable_exceptions
-            [::Faraday::Error::ConnectionFailed, ::Faraday::Error::TimeoutError]
+            [::Faraday::ConnectionFailed, ::Faraday::TimeoutError]
           end
 
           private
